@@ -5,7 +5,8 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const registerRoutes = require('./routes/registration.js')
 const loginRoutes = require('./routes/login')
-
+const homeRoutes = require('./routes/homeShowPage')
+const profile = require('./routes/profile')
 const port = process.env.PORT || 4000;
 const app = express();
 
@@ -30,6 +31,8 @@ app.use(cors({
 app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true })) 
+app.use('/', homeRoutes)
+app.use('/', profile)
 app.use('/register', registerRoutes)
 app.use('/login', loginRoutes)
 

@@ -1,12 +1,8 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
-const homes = new Schema({
-    id:{
-        type: String,
-        required: true
-    },
-    name: {
+const Homes = new Schema({   
+    propertyName: {
         type: String,
         required: true, 
 
@@ -20,11 +16,34 @@ const homes = new Schema({
         type: Number,        
         default: null
     },
+    renter: {
+        type: String,
+        default: null
+    },
     image: {
         type: String,
         default: null
-
+    },
+    timestamps: {
+        createdAt: {
+          type: Date,
+          default: Date.now(),
+        },
+        updatedAt: {
+          type: Date,
+          default: Date.now(),
+        },
+      },
+    isLeased: {
+        startDate: {
+            type: Date,
+            default: Date.now()
+        },
+        length: {
+            type: String,
+            default: '1 year'
+        }
     }
 })
 
-module.exports = mongoose.model("homes", homes)
+module.exports = mongoose.model("Homes", Homes)

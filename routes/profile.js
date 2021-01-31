@@ -4,7 +4,7 @@ const Users = require("../model/User");
 const { jwtauth } = require("../../lib/jwtlib");
 let _ = require("lodash");
 
-router.get("/public/:userId", async (req, res) => {
+router.get("/users/:id", async (req, res) => {
   try {
     let user = await User.findOne({
       _id: req.params.userId,
@@ -20,7 +20,7 @@ router.get("/public/:userId", async (req, res) => {
     });
   }
 });
-
+// get route for data for users profile 
 router.get("/", [jwtauth], async (req, res) => {
   try {
     let user = await models.User.findOne({
@@ -37,7 +37,7 @@ router.get("/", [jwtauth], async (req, res) => {
     });
   }
 });
-
+//put route for user with auth 
 router.put("/", [jwtauth], async (req, res) => {
   try {
     let user = await Users.User.findOne({
