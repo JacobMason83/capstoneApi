@@ -1,29 +1,25 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
-const Homes = new Schema({   
-    propertyName: {
+const Request = new Schema({   
+    renter: {
         type: String,
-        required: true, 
-
-    }, 
+        default: null
+    },  
     address: {
         type: String,
         required: true
         
     },
-    value: {
-        type: Number,        
-        default: null
-    },
-    renter: {
+    description: {
         type: String,
-        default: null
+        required: true
     },
-    image: {
-        type: String,
-        default: null
-    },
+    done: {
+      type: Boolean,
+      default: false
+    },    
+  
     timestamps: {
         createdAt: {
           type: Date,
@@ -38,4 +34,4 @@ const Homes = new Schema({
     
 })
 
-module.exports = mongoose.model("Homes", Homes)
+module.exports = mongoose.model("Request", Request)

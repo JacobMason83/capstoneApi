@@ -5,7 +5,7 @@ let _ = require("lodash");
 const jwt = require("jsonwebtoken");
 const config = require("../config");
 
-router.post("/", async (req, res) => {
+router.post("/register", async (req, res) => {
   try {
     let { username, role, password } = req.body;
     let user = new Users();

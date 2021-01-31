@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Users = require("../model/User");
-const { jwtauth } = require("../../lib/jwtlib");
+const { jwtauth } = require("../lib/jwtlib");
 let _ = require("lodash");
 
 router.get("/users/:id", async (req, res) => {

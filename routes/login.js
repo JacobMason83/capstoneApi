@@ -5,7 +5,7 @@ let _ = require("lodash");
 const jwt = require("jsonwebtoken");
 const config = require("../config");
 
-router.post("/", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     let user = await Users.findOne({
       username: req.body.username,

@@ -11,8 +11,8 @@ router.get('/allHomes', (req, res) => {
         } else {
             res.status(200).json([
                 ...homes.map(home => {
-                    const {_id, propertyName, address, value, renter,image, isLeased} = home
-                    return {id: _id, propertyName,address,value,renter,image, isLeased}
+                    const {_id, propertyName, address, value, renter,image } = home
+                    return {id: _id, propertyName,address,value,renter,image}
                 })
             ])
         }
@@ -24,8 +24,8 @@ router.post('/homes', (req, res)=> {
    homes
     .save()
     .then(homes => {
-        const {_id, propertyName, address, value, renter,image, isLeased} = home
-        res.status(200).json({id: _id, propertyName,address,value,renter,image, isLeased})
+        const {_id, propertyName, address, value, renter,image} = homes
+        res.status(200).json({id: _id, propertyName,address,value,renter,image})
     })
 })
 // patch route for changing values of property,ie renter, new lease date etc
@@ -36,8 +36,9 @@ router.patch('/homes/:id', (req, res) => {
         } else {
             home.propertyName = req.body.propertyName
             home.address = req.body.address
-            home.value = req.body.value
-            home.isLeased = req.body.isLeased
+            home.value = req.body.value            
+            home.renter = req.body.renter
+            home.image = req.body.image
             
             home
             .save()

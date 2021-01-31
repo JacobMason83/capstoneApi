@@ -7,6 +7,7 @@ const registerRoutes = require('./routes/registration.js')
 const loginRoutes = require('./routes/login')
 const homeRoutes = require('./routes/homeShowPage')
 const profile = require('./routes/profile')
+const requestRoutes = require('./routes/requests')
 const port = process.env.PORT || 4000;
 const app = express();
 
@@ -33,8 +34,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true })) 
 app.use('/', homeRoutes)
 app.use('/', profile)
-app.use('/register', registerRoutes)
-app.use('/login', loginRoutes)
+app.use('/', requestRoutes)
+app.use('/', registerRoutes)
+app.use('/', loginRoutes)
 
 app.listen(port, ()=> {
     console.log(`server is up on port ${port}`)
