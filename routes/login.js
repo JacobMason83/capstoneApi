@@ -26,7 +26,6 @@ router.post("/login", async (req, res) => {
           }
         );
         res.status(200).json({
-          status: 200,
           data: _.pick(user, Users.returnable),
         });
       } else {
@@ -49,5 +48,18 @@ router.post("/login", async (req, res) => {
     });
   }
 });
+router.post('/check-login' , (req, res) => {
+
+  const user = req.body.id
+  const id = Users.find(_id => user.id === _id)
+  if(id){
+    res.status(200).json({
+      message: 'logged-in'
+    })
+  } else {
+    res.status(401).json({ message: "not-logged-in"})
+  }
+}
+)
 
 module.exports = router

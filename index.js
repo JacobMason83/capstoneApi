@@ -8,6 +8,7 @@ const loginRoutes = require('./routes/login')
 const homeRoutes = require('./routes/homeShowPage')
 const profile = require('./routes/profile')
 const requestRoutes = require('./routes/requests')
+const messageRoutes = require('./routes/messages')
 const port = process.env.PORT || 4000;
 const app = express();
 
@@ -37,6 +38,7 @@ app.use('/', profile)
 app.use('/', requestRoutes)
 app.use('/', registerRoutes)
 app.use('/', loginRoutes)
+app.use('/', messageRoutes)
 
 app.listen(port, ()=> {
     console.log(`server is up on port ${port}`)

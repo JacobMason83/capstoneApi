@@ -43,7 +43,8 @@ userSchema.methods.validatePassword = (password, hashedPassword) => {
   return res;
 };
 
-userSchema.statics.fillable = ["name", "email", 'role'];
+
+userSchema.statics.fillable = ["username",  'role'];
 
 userSchema.statics.returnable = [
   "_id",
