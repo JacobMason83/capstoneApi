@@ -50,11 +50,12 @@ router.post("/login", async (req, res) => {
 });
 router.post('/check-login' , (req, res) => {
 
-  const user = req.body.id
+  const user = req.body.token
   const id = Users.find(_id => user.id === _id)
   if(id){
     res.status(200).json({
-      message: 'logged-in'
+      message: 'logged-in',
+      token: user.token
     })
   } else {
     res.status(401).json({ message: "not-logged-in"})
