@@ -55,7 +55,7 @@ router.post('/check-login' , (req, res) => {
   if(token){
     res.status(200).json({
       message: 'logged-in',
-      token: user.token
+      token: user
     })
   } else {
     res.status(401).json({ message: "not-logged-in"})
