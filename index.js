@@ -27,8 +27,9 @@ mongoose.connect(
 })
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://jdm-landlord-tenant-app.herokuapp.com',
     credentials: true
+    
 }))
 app.use(cookieParser())
 app.use(express.json())
