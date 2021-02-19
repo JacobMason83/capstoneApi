@@ -39,7 +39,7 @@ router.patch('/requests/:id', (req, res) => {
             request
             .save()
             .then(request => {
-                res.status(200).json({message: "updated, good job you did it", home})
+                res.status(200).json({message: "updated, good job you did it", request})
             })
             .catch(err => {
                 res.status(400).json({ message: "Cant update it dude", errors: `${err}`})
